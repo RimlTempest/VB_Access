@@ -103,6 +103,16 @@ Namespace My.Resources
         '''<summary>
         '''  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         '''</summary>
+        Friend ReadOnly Property images() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("images", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        '''</summary>
         Friend ReadOnly Property KKR() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("KKR", resourceCulture)
@@ -116,6 +126,26 @@ Namespace My.Resources
         Friend ReadOnly Property KSM() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("KSM", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        '''</summary>
+        Friend ReadOnly Property kusoge() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("kusoge", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        '''</summary>
+        Friend ReadOnly Property Play() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Play", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

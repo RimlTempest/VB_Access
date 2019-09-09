@@ -97,6 +97,12 @@
     <Compile Include="Dialog\Edit.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialog\Help.Designer.vb">
+      <DependentUpon>Help.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\Help.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GarupaDB.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +134,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Dialog\Edit.resx">
       <DependentUpon>Edit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\Help.resx">
+      <DependentUpon>Help.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -183,8 +192,11 @@
     <Content Include="Image\Exit.png" />
     <Content Include="Image\GarupaAPTool.ico" />
     <Content Include="Image\help.gif" />
+    <Content Include="Image\images.jpg" />
     <Content Include="Image\KKR.png" />
     <Content Include="Image\KSM.png" />
+    <Content Include="Image\kusoge.gif" />
+    <Content Include="Image\Play.gif" />
     <Content Include="Image\RN.png" />
     <Content Include="Image\Title.png" />
     <Content Include="Image\YKN.png" />

@@ -1,8 +1,7 @@
 ﻿Imports System.Security.Permissions
 Imports System.Windows.Forms
 
-Public Class Edit
-    Public Bandnum As Integer
+Public Class Help
     'Form Move
     <SecurityPermission(SecurityAction.Demand,
     Flags:=SecurityPermissionFlag.UnmanagedCode)>
@@ -36,26 +35,7 @@ Public Class Edit
         Me.Close()
     End Sub
 
-    Private Sub Edit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: このコード行はデータを 'GarupaDB.Bands' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.BandsTableAdapter.Fill(Me.GarupaDB.Bands)
-        'TODO: このコード行はデータを 'GarupaDB.Score' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-        Me.ScoreTableAdapter.Fill(Me.GarupaDB.Score)
-
-    End Sub
-
     Private Sub ExitProc(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
-    End Sub
-
-    Private Sub Plus(sender As Object, e As EventArgs) Handles CountPlus.Click
-        CountLabel.Text = CInt(CountLabel.Text) + 1
-    End Sub
-
-    Private Sub Minus(sender As Object, e As EventArgs) Handles CountMinus.Click
-        CountLabel.Text = CInt(CountLabel.Text) - 1
-        If (CInt(CountLabel.Text) <= 0) Then
-            CountLabel.Text = 0
-        End If
     End Sub
 End Class

@@ -137,8 +137,16 @@ Public Class Main
         SelRows(0).Item("LevelNum") = Edit.LevelBox.Text
         SelRows(0).Item("Count") = Edit.CountLabel.Text
 
-        ScoreTableAdapter.Update(GarupaDB.Score)
-        DataSet()
+        Dim Answer As Long
+        Answer = MsgBox("更新してもよろしいですか？", vbYesNo, "削除")
+
+        Select Case Answer
+            Case vbYes
+                ScoreTableAdapter.Update(GarupaDB.Score)
+                DataSet()
+            Case vbNo
+                Exit Sub
+        End Select
     End Sub
 
     Private Sub DeleteData(sender As Object, e As EventArgs) Handles DeleteButton.Click
@@ -152,9 +160,22 @@ Public Class Main
         SelRows = GarupaDB.Score.Select("MusicName ='" & selID.ToString & "'")
         If SelRows Is Nothing Then Exit Sub
 
-        SelRows(0).Delete()
+        Dim Answer As Long
+        Answer = MsgBox("削除してもよろしいですか？", vbYesNo, "削除")
 
-        ScoreTableAdapter.Update(GarupaDB.Score)
-        DataSet()
+        Select Case Answer
+            Case vbYes
+                SelRows(0).Delete()
+                ScoreTableAdapter.Update(GarupaDB.Score)
+                DataSet()
+            Case vbNo
+                Exit Sub
+        End Select
+    End Sub
+
+    Private Sub HelpClick(sender As Object, e As EventArgs) Handles HelpButton.Click
+        If Help.ShowDialog() <> DialogResult.OK Then
+            Exit Sub
+        End If
     End Sub
 End Class
