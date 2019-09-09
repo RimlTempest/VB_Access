@@ -32,7 +32,7 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.GarupaAPTool.Form1
+            Me.MainForm = Global.GarupaAPTool.Main
         End Sub
     End Class
 End Namespace
