@@ -2,7 +2,7 @@
 Imports System.Windows.Forms
 
 Public Class Edit
-
+    Public Bandnum As Integer
     'Form Move
     <SecurityPermission(SecurityAction.Demand,
     Flags:=SecurityPermissionFlag.UnmanagedCode)>

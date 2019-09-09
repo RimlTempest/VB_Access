@@ -87,6 +87,7 @@ Public Class Main
         For i As Integer = 20 To 30
             Edit.LevelBox.Items.Add(i)
         Next
+        Edit.LevelBox.Text = Edit.LevelBox.Items(5)
 
         If Edit.ShowDialog() <> DialogResult.OK Then
             Exit Sub
@@ -108,5 +109,52 @@ Public Class Main
 
     End Sub
 
+    Private Sub UpdateData(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        Me.ScoreTableAdapter.Fill(Me.GarupaDB.Score)
 
+        If Q_ScoreDataGridView.CurrentRow Is Nothing Then Exit Sub
+
+        Dim SelRows As DataRow()
+        Dim selID As String = Q_ScoreDataGridView.CurrentRow.Cells(1).Value
+
+        SelRows = GarupaDB.Score.Select("MusicName ='" & selID.ToString & "'")
+        If SelRows Is Nothing Then Exit Sub
+
+        Edit.Bandnum = SelRows(0).Item("BandID")
+        Edit.BandBox.Enabled = True
+        Edit.MusicName.Text = SelRows(0).Item("MusicName").ToString
+        Edit.DiffBox.Text = SelRows(0).Item("Level").ToString
+        Edit.LevelBox.Text = SelRows(0).Item("LevelNum").ToString
+        Edit.CountLabel.Text = SelRows(0).Item("Count").ToString
+
+        If Edit.ShowDialog() <> DialogResult.OK Then
+            Exit Sub
+        End If
+
+        SelRows(0).Item("BandID") = Edit.BandBox.SelectedValue
+        SelRows(0).Item("MusicName") = Edit.MusicName.Text
+        SelRows(0).Item("Level") = Edit.DiffBox.Text
+        SelRows(0).Item("LevelNum") = Edit.LevelBox.Text
+        SelRows(0).Item("Count") = Edit.CountLabel.Text
+
+        ScoreTableAdapter.Update(GarupaDB.Score)
+        DataSet()
+    End Sub
+
+    Private Sub DeleteData(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        If Q_ScoreDataGridView.CurrentRow Is Nothing Then Exit Sub
+
+        Me.ScoreTableAdapter.Fill(Me.GarupaDB.Score)
+
+        Dim SelRows As DataRow()
+        Dim selID As String = Q_ScoreDataGridView.CurrentRow.Cells(1).Value
+
+        SelRows = GarupaDB.Score.Select("MusicName ='" & selID.ToString & "'")
+        If SelRows Is Nothing Then Exit Sub
+
+        SelRows(0).Delete()
+
+        ScoreTableAdapter.Update(GarupaDB.Score)
+        DataSet()
+    End Sub
 End Class

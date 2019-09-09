@@ -348,7 +348,7 @@ Partial Class Main
         Me.HelpButton.Image = Global.GarupaAPTool.My.Resources.Resources.help
         Me.HelpButton.Location = New System.Drawing.Point(967, -1)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(136, 75)
+        Me.HelpButton.Size = New System.Drawing.Size(136, 78)
         Me.HelpButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.HelpButton.TabIndex = 9
         Me.HelpButton.TabStop = False
